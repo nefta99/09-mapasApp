@@ -45,19 +45,22 @@ export class ZoomRangeComponent implements AfterViewInit {
       center: [-75.921029433568,45.28719674822362],
       zoom: this.zooLevel
       });
+
+      //
+      this.mapa.on('zoom',(ev)=>{        
+        this.zooLevel = this.mapa.getZoom();
+      })
   }
 
 
   zoomOut(){
     //console.log('Zoomout');
     this.mapa.zoomOut();
-    //console.log('zooOut',this.divMapa);
-    this.zooLevel = this.mapa.getZoom();
-
+  
   }
   zoomIn(){
     this.mapa.zoomIn();
-    this.zooLevel = this.mapa.getZoom();
+    
   }
 
 }
