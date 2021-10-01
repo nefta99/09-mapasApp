@@ -19,6 +19,7 @@ import * as mapboxgl from 'mapbox-gl'; /*Con este codigo remplaza esto:  var map
         padding:10px;
         position: fixed;
         z-index : 999;
+        width:400px;
       }
     `
   ]
