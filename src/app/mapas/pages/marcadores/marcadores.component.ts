@@ -71,8 +71,10 @@ export class MarcadoresComponent implements AfterViewInit {
   }
 
   //Metodos
-  irMarcador(){
-
+  irMarcador(marker: mapboxgl.Marker){
+    this.mapa.flyTo({
+      center: marker.getLngLat()
+    })
   }
 
   agregarMarcador(){
