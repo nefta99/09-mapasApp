@@ -74,7 +74,7 @@ export class MarcadoresComponent implements AfterViewInit {
 
   //Metodos
   irMarcador(marker: mapboxgl.Marker){
-    console.log(marker);
+ 
     this.mapa.flyTo({
       center: marker.getLngLat()
     })
@@ -141,7 +141,16 @@ export class MarcadoresComponent implements AfterViewInit {
          color : m.color
        });
 
+       newMarker.on('dragend',()=>{
+          this.guardarMarcadoresLocalStorage();
+       })
      })
+  }
+
+  borrarMarcador(i : number){
+    this.marcadores[i].marker?.remove();//Para removerlo del mapa
+    this.marcadores.splice(i,1);
+    this.guardarMarcadoresLocalStorage();
   }
   
 
